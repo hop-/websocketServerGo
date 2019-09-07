@@ -1,0 +1,8 @@
+{
+  "zookeeper": {
+    "host": "ZOOKEEPER_HOST"
+  },
+  "kafka": {
+    "brokers": "KAFKA_BROKERS"
+  }
+}

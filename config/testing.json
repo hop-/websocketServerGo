@@ -1,0 +1,8 @@
+{
+  "api": {
+    "url": {
+      "notification": "https://api-users.priotix.xyz/users/me/notifications",
+      "user": "https://api-users.priotix.xyz/users/me"
+    } 
+  }
+}
