@@ -1,0 +1,25 @@
+{
+  "logFile": "flash.log",
+  "name": "flash",
+  "port": 3110,
+  "requestPoolSize": 1000,
+  "api": {
+    "url": {
+      "notification": "",
+      "user": "",
+      "scheduleMobile": ""
+    } 
+  },
+  "db": {
+    "user": "api",
+    "name": "",
+    "url": "",
+    "pwd": ""
+  },
+  "consumer": {
+    "group": {
+      "id": "FlashGroup"
+    },
+    "topic": "flash-v2"
+  }
+}

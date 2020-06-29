@@ -1,0 +1,10 @@
+{
+  "kafka": {
+    "brokers": "KAFKA_BROKERS"
+  },
+  "db": {
+    "url": "DB_CONNECTION_STRING",
+    "pwd": "DB_PSWD",
+    "name": "DB_NAME"
+  }
+}

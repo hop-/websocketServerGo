@@ -1,0 +1,10 @@
+{
+  "api": {
+    "url": {
+      "notification": "https://api-users.win.gg/users/me/notifications",
+      "user": "https://api-users.win.gg/users/me",
+      "scheduleMobile": "https://api-data-mobile.win.gg/schedules"
+      "tournamentMobile": "https://api-data-mobile.win.gg/tournaments"
+    } 
+  }
+}
