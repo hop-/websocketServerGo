@@ -44,11 +44,14 @@ func (h *ApplicationHandler) readRequests(s *Session) {
 		if err != nil {
 			// Check if connection fails
 			if _, ok := err.(*websocket.CloseError); ok {
-				log.Error(err.Error())
+				log.Warning(err.Error())
 				break
 			}
 			log.Error(err.Error())
-			sendErrorResponse(err.Error(), -1, s)
+			if err := sendErrorResponse(err.Error(), -1, s); err != nil {
+				log.Error("Unable to send response, breaking connection")
+				break
+			}
 			continue
 		}
 
@@ -82,9 +85,9 @@ func (h *ApplicationHandler) readRequests(s *Session) {
 }
 
 // sendErrorResponse send response with error status for given session and request id
-func sendErrorResponse(msg string, rID int64, s *Session) {
+func sendErrorResponse(msg string, rID int64, s *Session) error {
 	errorObject := NewError(msg)
 	errorResponse := websocket.ErrorResponse(rID, errorObject)
 
-	s.SendResponse(errorResponse)
+	return s.SendResponse(errorResponse)
 }

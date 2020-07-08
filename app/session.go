@@ -75,7 +75,7 @@ func (s *Session) ClearRequests() {
 }
 
 // SendResponse send response for given session and request id
-func (s *Session) SendResponse(r *websocket.Response) {
+func (s *Session) SendResponse(r *websocket.Response) error {
 	// TODO check if logs can be moved somwhere else
 	if r.RequestID != -1 {
 		log.Infof("Sending response for %d request", r.RequestID)
@@ -84,13 +84,14 @@ func (s *Session) SendResponse(r *websocket.Response) {
 		s.mutex.RUnlock()
 		if !ok {
 			log.Error("Unknown sessionID requestID: ", s.ID, r.RequestID)
-			return
+			return nil
 		}
 	} else {
 		log.Info("Sending update response without request id")
 	}
 
-	if err := s.Write(r); err != nil {
+	var err error
+	if err = s.Write(r); err != nil {
 		log.Error(err.Error())
 	} else {
 		log.Info("Sent successfully")
@@ -101,6 +102,7 @@ func (s *Session) SendResponse(r *websocket.Response) {
 		defer s.mutex.Unlock()
 		delete(s.requests, r.RequestID)
 	}
+	return err
 }
 
 // Subscriptions getter function for subscription list

@@ -16,13 +16,29 @@ func NewScheduleService(url string) *ScheduleService {
 }
 
 // GetSchedules method implementation
-func (s *ScheduleService) GetSchedules(from, to uint64, timezone string) (interface{}, string, error) {
+func (s *ScheduleService) GetSchedules(from, to uint64, timezone string, gameID []string, substageTier []int, tournamentID []string) (interface{}, string, error) {
 	headers := make(map[string]string)
 	qParams := map[string][]string{}
 
 	qParams["from"] = []string{strconv.FormatUint(from, 10)}
 	qParams["to"] = []string{strconv.FormatUint(to, 10)}
 	qParams["tz"] = []string{timezone}
+
+	if gameID != nil {
+		qParams["game_id"] = gameID
+	}
+	if substageTier != nil {
+		tiers := make([]string, len(substageTier))
+
+		for i := range substageTier {
+			tiers[i] = strconv.Itoa(substageTier[i])
+		}
+
+		qParams["substage.tier"] = tiers
+	}
+	if tournamentID != nil {
+		qParams["tournament.id"] = tournamentID
+	}
 
 	result, err := request("GET", s.url, headers, qParams, nil)
 	if err != nil {

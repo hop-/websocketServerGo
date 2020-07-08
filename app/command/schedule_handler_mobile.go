@@ -12,9 +12,17 @@ import (
 type ScheduleHandlerMobile struct{}
 
 type scheduleOptionsWhere struct {
-	From     uint64 `json:"from" validate:"required"`
-	To       uint64 `json:"to" validate:"required"`
-	Timezone string `json:"timezone" validate:"required"`
+	From     uint64   `json:"from" validate:"required"`
+	To       uint64   `json:"to" validate:"required"`
+	Timezone string   `json:"timezone" validate:"required"`
+	GameIDs  []string `json:"gameIds,omitempty" bson:"gameIds,omitempty"`
+	Test     *bool    `json:"test,omitempty" bson:"test,omitempty"`
+	Substage *struct {
+		Tiers []int `json:"tiers,omitempty" bson:"tiers,omitempty"`
+	} `json:"substage,omitempty" bson:"substage,omitempty"`
+	Tournament *struct {
+		IDs []string `json:"ids,omitempty" bson:"ids,omitempty"`
+	} `json:"tournament,omitempty" bson:"tournament,omitempty"`
 }
 
 // scheduleOptions options object of schedule request/command
@@ -32,7 +40,17 @@ func (h *ScheduleHandlerMobile) Handle(s *app.Session, r *websocket.Request) (*w
 	options := scheduleOptions{}
 	r.GetOptions(&options)
 
-	payload, status, err := ScheduleServiceMobile.GetSchedules(options.Where.From, options.Where.To, options.Where.Timezone)
+	var substageTiers []int
+	if options.Where.Substage != nil {
+		substageTiers = options.Where.Substage.Tiers
+	}
+
+	var tournamentIDs []string
+	if options.Where.Tournament != nil {
+		tournamentIDs = options.Where.Tournament.IDs
+	}
+
+	payload, status, err := ScheduleServiceMobile.GetSchedules(options.Where.From, options.Where.To, options.Where.Timezone, options.Where.GameIDs, substageTiers, tournamentIDs)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +71,17 @@ func (h *ScheduleHandlerMobile) Handle(s *app.Session, r *websocket.Request) (*w
 func scheduleRecallHandler(s *app.Session, where interface{}) (interface{}, error) {
 	whereObject := where.(scheduleOptionsWhere)
 
-	payload, status, err := ScheduleServiceMobile.GetSchedules(whereObject.From, whereObject.To, whereObject.Timezone)
+	var substageTiers []int
+	if whereObject.Substage != nil {
+		substageTiers = whereObject.Substage.Tiers
+	}
+
+	var tournamentIDs []string
+	if whereObject.Tournament != nil {
+		tournamentIDs = whereObject.Tournament.IDs
+	}
+
+	payload, status, err := ScheduleServiceMobile.GetSchedules(whereObject.From, whereObject.To, whereObject.Timezone, whereObject.GameIDs, substageTiers, tournamentIDs)
 	if err != nil {
 		return nil, err
 	}
