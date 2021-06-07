@@ -3,7 +3,8 @@ package mongodb
 import (
 	"time"
 
-	"../../app"
+	"wss/app"
+
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 

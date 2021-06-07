@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"../libs/log"
-	"../libs/websocket"
+	"wss/libs/log"
+	"wss/libs/websocket"
 )
 
 // Session stucture to save session info and connection

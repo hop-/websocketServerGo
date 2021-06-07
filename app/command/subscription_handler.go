@@ -1,8 +1,8 @@
 package command
 
 import (
-	"../../app"
-	"../../libs/websocket"
+	"wss/app"
+	"wss/libs/websocket"
 )
 
 // SubscriptionHandler app.CommandHandler struct for subscription command

@@ -1,8 +1,8 @@
 package app
 
 import (
-	"../libs/log"
-	"../libs/websocket"
+	"wss/libs/log"
+	"wss/libs/websocket"
 )
 
 // ApplicationHandler ..

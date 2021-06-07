@@ -3,8 +3,8 @@ package command
 import (
 	"errors"
 
-	"../../app"
-	"../../libs/websocket"
+	"wss/app"
+	"wss/libs/websocket"
 )
 
 // AuthenticationHandler app.CommandHandler struct for authorize command

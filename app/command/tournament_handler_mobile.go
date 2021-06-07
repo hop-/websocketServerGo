@@ -1,8 +1,8 @@
 package command
 
 import (
-	"../../app"
-	"../../libs/websocket"
+	"wss/app"
+	"wss/libs/websocket"
 )
 
 // TournamentHandlerMobile app.CommandHandler struct for tournament command

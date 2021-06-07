@@ -1,8 +1,8 @@
 package command
 
 import (
-	"../../app"
-	"../../libs/websocket"
+	"wss/app"
+	"wss/libs/websocket"
 )
 
 // UpdateNotificationHandler app.CommandHandler struct for updateNotification command

@@ -1,7 +1,7 @@
 package app
 
 import (
-	"../libs/hasher"
+	"wss/libs/hasher"
 )
 
 // Subscription ..

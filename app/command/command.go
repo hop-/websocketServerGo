@@ -1,7 +1,7 @@
 package command
 
 import (
-	"../../app"
+	"wss/app"
 )
 
 var (

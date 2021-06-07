@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"../../app"
-	"../../libs/websocket"
+	"wss/app"
+	"wss/libs/websocket"
 )
 
 // NotificationHandler app.CommandHandler struct for notification command

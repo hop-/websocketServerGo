@@ -1,6 +1,6 @@
 {
-  "logFile": "flash.log",
-  "name": "flash",
+  "logFile": "wss.log",
+  "name": "wss",
   "port": 3110,
   "requestPoolSize": 1000,
   "api": {
@@ -18,8 +18,8 @@
   },
   "consumer": {
     "group": {
-      "id": "FlashGroup"
+      "id": "wssGroup"
     },
-    "topic": "flash-v2"
+    "topic": "wss"
   }
 }

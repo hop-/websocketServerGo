@@ -3,9 +3,9 @@ package consumer
 import (
 	"encoding/json"
 
-	"../app"
-	"../libs/kafka"
-	"../libs/log"
+	"wss/app"
+	"wss/libs/kafka"
+	"wss/libs/log"
 )
 
 // SubscriptionsDocument is a golang representation of notification document object in kafka message

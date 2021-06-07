@@ -1,10 +1,10 @@
 {
   "api": {
     "url": {
-      "notification": "https://api-users.wincafe.net/users/me/notifications",
-      "user": "https://api-users.wincafe.net/users/me",
-      "scheduleMobile": "https://api-data-mobile.wincafe.net/schedules",
-      "tournamentMobile": "https://api-data-mobile.wincafe.net/tournaments"
+      "notification": "https://api-users.staging/users/me/notifications",
+      "user": "https://api-users.staging/users/me",
+      "scheduleMobile": "https://api-data-mobile.staging/schedules",
+      "tournamentMobile": "https://api-data-mobile.staging/tournaments"
     } 
   }
 }

@@ -1,7 +1,7 @@
 package app
 
 import (
-	"../libs/websocket"
+	"wss/libs/websocket"
 )
 
 // CommandHandler ..

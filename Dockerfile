@@ -1,12 +1,10 @@
-FROM golang:1.12.7
-MAINTAINER priotix
+FROM golang:1.16.4
+LABEL maintainer=priotix
 
 
-WORKDIR /var/www/flash
+WORKDIR /var/www/wss
 COPY . .
 
-RUN go get -d -v ./...
+RUN go build 
 
-RUN go build .
-
-CMD ["./flash"]
+CMD ["./wss"]

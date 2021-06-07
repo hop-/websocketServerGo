@@ -5,8 +5,8 @@ import (
 	"strings"
 	"sync"
 
-	"../libs/log"
-	"../libs/websocket"
+	"wss/libs/log"
+	"wss/libs/websocket"
 
 	"github.com/google/uuid"
 )

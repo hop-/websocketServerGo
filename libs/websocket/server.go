@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"../log"
+	"wss/libs/log"
 
 	gorillaWebsocket "github.com/gorilla/websocket"
 )

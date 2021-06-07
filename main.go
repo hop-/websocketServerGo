@@ -3,14 +3,15 @@ package main
 import (
 	"strings"
 
-	"./app"
-	"./app/command"
-	"./app/mongodb"
-	"./app/rest"
-	"./consumer"
-	"./libs/goconfig"
-	"./libs/kafka"
-	"./libs/log"
+	"wss/app"
+	"wss/app/command"
+	"wss/app/mongodb"
+	"wss/app/rest"
+	"wss/consumer"
+	"wss/libs/goconfig"
+	"wss/libs/kafka"
+	"wss/libs/log"
+
 	"github.com/joho/godotenv"
 )
 

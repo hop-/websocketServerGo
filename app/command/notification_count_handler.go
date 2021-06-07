@@ -1,8 +1,8 @@
 package command
 
 import (
-	"../../app"
-	"../../libs/websocket"
+	"wss/app"
+	"wss/libs/websocket"
 )
 
 // NotificationCountHandler app.CommandHandler struct for notificationCount command
