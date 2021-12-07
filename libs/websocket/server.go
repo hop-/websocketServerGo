@@ -6,9 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"wss/libs/log"
-
 	gorillaWebsocket "github.com/gorilla/websocket"
+	log "github.com/hop-/golog"
 )
 
 const (

@@ -5,8 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"wss/libs/log"
 	"wss/libs/websocket"
+
+	log "github.com/hop-/golog"
 )
 
 // Session stucture to save session info and connection

@@ -8,10 +8,10 @@ import (
 	"wss/app/mongodb"
 	"wss/app/rest"
 	"wss/consumer"
-	"wss/libs/goconfig"
 	"wss/libs/kafka"
-	"wss/libs/log"
 
+	"github.com/hop-/goconfig"
+	log "github.com/hop-/golog"
 	"github.com/joho/godotenv"
 )
 

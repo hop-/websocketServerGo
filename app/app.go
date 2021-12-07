@@ -5,10 +5,10 @@ import (
 	"strings"
 	"sync"
 
-	"wss/libs/log"
 	"wss/libs/websocket"
 
 	"github.com/google/uuid"
+	log "github.com/hop-/golog"
 )
 
 var (

@@ -5,8 +5,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"wss/libs/log"
-
+	log "github.com/hop-/golog"
 	kafkago "github.com/segmentio/kafka-go"
 	_ "github.com/segmentio/kafka-go/gzip"
 )

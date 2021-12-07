@@ -5,7 +5,8 @@ import (
 
 	"wss/app"
 	"wss/libs/kafka"
-	"wss/libs/log"
+
+	log "github.com/hop-/golog"
 )
 
 // SubscriptionsDocument is a golang representation of notification document object in kafka message

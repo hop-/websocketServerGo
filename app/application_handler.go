@@ -1,8 +1,9 @@
 package app
 
 import (
-	"wss/libs/log"
 	"wss/libs/websocket"
+
+	log "github.com/hop-/golog"
 )
 
 // ApplicationHandler ..
