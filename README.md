@@ -1,6 +1,6 @@
-# flash
+# wss
 
-Flash is a websocket service which allaws client to authorize, get notification list and get updates if there is new notification
+wss is a websocket service which allaws client to authorize, get notification list and get updates if there is new notification
 
 ## Table of Contents
   1. [Requirements](#requirements)
@@ -15,22 +15,16 @@ Flash is a websocket service which allaws client to authorize, get notification 
 
 - Docker v18.09
 
-- Golang v1.12.7 or higher
-https://golang.org/doc/install?download=go1.12.7.linux-amd64.tar.gz
+- Golang v1.16 or higher
+https://golang.org/doc/install?download=go1.16.linux-amd64.tar.gz
 
 ## Deployment
-
-1. Setup Priotix Virtual Environment
-
-```sh
-$ git clone git@github.com:priotix/vm-dev.git
-```
 
 2. Get Sources
 
 ```sh
 $ cd /home/USER/code/
-$ git clone git@github.com:winesports/flash.git
+$ git clone git@github.com:hop-/wss.git
 ```
 
 3. Setup Environment Variables
@@ -52,15 +46,14 @@ KAFKA_BROKERS={{kafka-broker1:port1,kafka-broker2:port2}}
 ### Build Without Docker
 
 ```sh
-$ cd path/to/flash
-$ go get -d -v ./...
+$ cd path/to/wss
 $ go build
 ```
 ### Build With Docker
 
 ```sh
 $ cd path/to/flash
-$ docker build .
+$ docker build
 ```
 
 ## Running The Service
@@ -68,7 +61,7 @@ $ docker build .
 ### Executable
 
 ```sh
-$ ./flash
+$ ./wss
 ```
 
 ### Docker
@@ -83,7 +76,7 @@ This service consumes kafka topic for a new notifications and send it to the use
 As a kafka message consumer this service has the following configurations
 
 #### Topic
-`flash`
+`wss`
 
 #### Message
 ```json
@@ -99,7 +92,7 @@ As a kafka message consumer this service has the following configurations
 Websocket connection is established by client request.
 For each connection the service creates a separate session with unique session ID.
 Communication between the client and the server is done using json objects.
-You can to have two types of json objects.
+You can have two types of json objects.
 ### Request object
 Client can send request objects.
 Each reqeust object is an command, and has unique reqeust id.
